@@ -6,7 +6,7 @@ const Plane = ({ isRotating, ...props }) => {
   const { scene, animations } = useGLTF(planeScene);
   const { actions } = useAnimations(animations, ref);
   return (
-    <mesh {...props}>
+    <mesh {...props} ref={ref}>
       <primitive object={scene} />
     </mesh>
   );
