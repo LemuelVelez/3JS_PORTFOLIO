@@ -7,8 +7,8 @@ const renderContent = {
   4: <h1>4</h1>,
 };
 
-const HomeInfo = () => {
-  return;
+const HomeInfo = ({ currentStage }) => {
+  return renderContent[currentStage] || null;
 };
 
 export default HomeInfo;
