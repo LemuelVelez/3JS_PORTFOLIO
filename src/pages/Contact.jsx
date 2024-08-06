@@ -55,6 +55,15 @@ const Contact = () => {
               onBlur={handleBlur}
             />
           </label>
+
+          <button
+            type="submit"
+            className="btn"
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+          >
+            Send Message
+          </button>
         </form>
       </div>
     </section>
