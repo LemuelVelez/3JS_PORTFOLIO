@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = () => {};
   const handleFocus = () => {};
@@ -61,8 +62,9 @@ const Contact = () => {
             className="btn"
             onFocus={handleFocus}
             onBlur={handleBlur}
+            disabled={isLoading}
           >
-            Send Message
+            {isLoading ? "Sending..." : "Send Message"}
           </button>
         </form>
       </div>
