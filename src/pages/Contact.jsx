@@ -2,6 +2,9 @@ import React, { useState } from "react";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+
+  const handleSubmit = () => {};
+
   return (
     <section className="relative flex lg:flex-rowq flex-col max-container">
       <div className="flex-1 min-w-[50%] flex flex-col">
@@ -16,6 +19,8 @@ const Contact = () => {
               placeholder="John"
               className="input"
               required
+              value={form.name}
+              onChange={handleChange}
             />
           </label>
         </form>
