@@ -13,7 +13,7 @@ const Contact = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    emailjs.sendForm(
+    emailjs.send(
       import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
       import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
       {
@@ -27,6 +27,7 @@ const Contact = () => {
     ).then(() => {
       setIsLoading(false);
       alert("Thank you. I will get back to you as soon as possible");
+      setForm({ name: "", email: "", message: "" });
     }).catch((error) => {
       setIsLoading(false);
       alert("Something went wrong. Please try again");
