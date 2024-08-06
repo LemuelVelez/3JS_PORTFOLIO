@@ -3,7 +3,9 @@ import React, { useState } from "react";
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
-  const handleSubmit = () => {};
+  const handleChange = () => {};
+  const handleFocus = () => {};
+  const handleBlur = () => {};
 
   return (
     <section className="relative flex lg:flex-rowq flex-col max-container">
