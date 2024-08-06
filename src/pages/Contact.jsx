@@ -23,6 +23,36 @@ const Contact = () => {
               required
               value={form.name}
               onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            />
+          </label>
+          <label className="text-black-500 font-semibold">
+            Email
+            <input
+              type="email"
+              name="email"
+              placeholder="john@gmail.com"
+              className="input"
+              required
+              value={form.email}
+              onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+            />
+          </label>
+          <label className="text-black-500 font-semibold">
+            Your Message
+            <textarea
+              name="message"
+              rows={4}
+              placeholder="Let me know how can I help you"
+              className="textarea"
+              required
+              value={form.message}
+              onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
             />
           </label>
         </form>
