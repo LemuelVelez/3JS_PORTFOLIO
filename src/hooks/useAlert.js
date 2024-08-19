@@ -2,7 +2,9 @@ import { useState } from 'react'
 
 const useAlert = () => {
     const [alert, setAlert] = useState({
-        show: false, text: "", type: "danger"
+        show: false,
+        text: "",
+        type: "danger"
     })
 
     const showAlert = (text, type = "danger") => setAlert({
@@ -10,9 +12,13 @@ const useAlert = () => {
         text,
         type
     })
-    return (
-        <div>useAlert</div>
-    )
+
+    const hideAlert = () => setAlert({
+        show: false,
+        text: "",
+        type: "danger"
+    })
+    return { alert, showAlert, hideAlert }
 }
 
 export default useAlert
