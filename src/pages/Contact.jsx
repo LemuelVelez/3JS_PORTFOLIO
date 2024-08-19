@@ -4,6 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import Fox from "../models/Fox";
 import Loader from "../components/Loader";
 import useAlert from "../hooks/useAlert";
+import Alert from "../components/Alert";
 
 const Contact = () => {
   const formRef = useRef(null);
@@ -37,9 +38,14 @@ const Contact = () => {
       )
       .then(() => {
         setIsLoading(false);
-        alert("Thank you. I will get back to you as soon as possible");
+        showAlert({
+          show: true,
+          text: "Thank you. I will get back to you as soon as possible.",
+          type: "success",
+        });
 
         setTimeout(() => {
+          hideAlert();
           setCurrentAnimation("idle");
           setForm({ name: "", email: "", message: "" });
         }, [3000]);
@@ -48,7 +54,11 @@ const Contact = () => {
         setIsLoading(false);
         setCurrentAnimation("idle");
         console.log(error);
-        alert("Something went wrong. Please try again");
+        showAlert({
+          show: true,
+          text: "Something went wrong. Please try again.",
+          type: "danger",
+        });
       });
   };
   const handleFocus = () => setCurrentAnimation("walk");
@@ -56,6 +66,9 @@ const Contact = () => {
 
   return (
     <section className="relative flex lg:flex-rowq flex-col max-container">
+      {alert.show && <Alert {...alert} />}
+      <Alert {...alert} />
+
       <div className="flex-1 min-w-[50%] flex flex-col">
         <h1 className="head-text">Get in Touch</h1>
 
