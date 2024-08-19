@@ -7,7 +7,7 @@ const Alert = ({ type, text }) => {
         }p-2 text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex`}
         role="alert"
       >
-        test
+        <p className="mr-2 text-left">{text}</p>
       </div>
     </div>
   );
