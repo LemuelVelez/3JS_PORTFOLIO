@@ -16,6 +16,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setCurrentAnimation("run");
 
     console.log(import.meta.env.VITE_APP_EMAILJS_SERVICE_ID);
     emailjs
@@ -38,6 +39,7 @@ const Contact = () => {
       })
       .catch((error) => {
         setIsLoading(false);
+        setCurrentAnimation("idle");
         console.log(error);
         alert("Something went wrong. Please try again");
       });
@@ -122,6 +124,7 @@ const Contact = () => {
           <ambientLight intensity={0.5} />
           <Suspense fallback={<Loader />}>
             <Fox
+              currentAnimation={currentAnimation}
               position={[0.5, 0.35, 0]}
               rotation={[12.6, -0.6, 0]}
               scale={[0.5, 0.5, 0.5]}
