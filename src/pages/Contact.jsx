@@ -35,7 +35,11 @@ const Contact = () => {
       .then(() => {
         setIsLoading(false);
         alert("Thank you. I will get back to you as soon as possible");
-        setForm({ name: "", email: "", message: "" });
+
+        setTimeout(() => {
+          setCurrentAnimation("idle");
+          setForm({ name: "", email: "", message: "" });
+        }, [3000]);
       })
       .catch((error) => {
         setIsLoading(false);
