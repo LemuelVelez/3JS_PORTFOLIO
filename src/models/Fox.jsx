@@ -9,6 +9,8 @@ Title: Fox
 import React, { useRef } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 
+import scene from '../assets/3d/fox.glb'
+
 export function Model(props) {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('/fox.glb')
