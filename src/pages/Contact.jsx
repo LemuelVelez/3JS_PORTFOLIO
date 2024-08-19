@@ -48,7 +48,7 @@ const Contact = () => {
           hideAlert();
           setCurrentAnimation("idle");
           setForm({ name: "", email: "", message: "" });
-        }, [3000]);
+        }, 3000);
       })
       .catch((error) => {
         setIsLoading(false);
@@ -67,7 +67,6 @@ const Contact = () => {
   return (
     <section className="relative flex lg:flex-rowq flex-col max-container">
       {alert.show && <Alert {...alert} />}
-      <Alert {...alert} />
 
       <div className="flex-1 min-w-[50%] flex flex-col">
         <h1 className="head-text">Get in Touch</h1>

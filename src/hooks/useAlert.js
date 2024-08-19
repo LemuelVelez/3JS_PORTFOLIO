@@ -7,7 +7,7 @@ const useAlert = () => {
         type: "danger"
     })
 
-    const showAlert = (text, type = "danger") => setAlert({
+    const showAlert = ({ text, type = "danger" }) => setAlert({
         show: true,
         text,
         type
@@ -18,6 +18,7 @@ const useAlert = () => {
         text: "",
         type: "danger"
     })
+
     return { alert, showAlert, hideAlert }
 }
 
