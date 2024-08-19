@@ -42,8 +42,8 @@ const Contact = () => {
         alert("Something went wrong. Please try again");
       });
   };
-  const handleFocus = () => {};
-  const handleBlur = () => {};
+  const handleFocus = () => setCurrentAnimation("walk");
+  const handleBlur = () => setCurrentAnimation("idle");
 
   return (
     <section className="relative flex lg:flex-rowq flex-col max-container">
