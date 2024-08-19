@@ -16,7 +16,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    setCurrentAnimation("run");
+    setCurrentAnimation("hit");
 
     console.log(import.meta.env.VITE_APP_EMAILJS_SERVICE_ID);
     emailjs
