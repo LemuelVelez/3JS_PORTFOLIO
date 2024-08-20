@@ -18,6 +18,10 @@ const About = () => {
 
       <div className="py-10 flex flex-col">
         <h3 className="subhead-text">My Skills</h3>
+
+        <div className="mt-16 flex flex-wrap gap-12">
+
+        </div>
       </div>
     </section>
   );
