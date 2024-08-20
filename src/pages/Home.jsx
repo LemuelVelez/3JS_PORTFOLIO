@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import Loader from "../components/Loader";
 import Island from "../models/Island";
@@ -10,40 +10,51 @@ import HomeInfo from "../components/HomeInfo";
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
+  const [islandProps, setIslandProps] = useState({});
+  const [planeProps, setPlaneProps] = useState({});
+
+  const updateScreenSize = () => {
+    const [
+      islandScale,
+      islandPosition,
+      islandRotation,
+    ] = adjustIslandForScreenSize();
+    const [planeScale, planePosition] = adjustPlaneForScreenSize();
+    setIslandProps({
+      scale: islandScale,
+      position: islandPosition,
+      rotation: islandRotation,
+    });
+    setPlaneProps({ scale: planeScale, position: planePosition });
+  };
+
+  useEffect(() => {
+    updateScreenSize();
+    window.addEventListener("resize", updateScreenSize);
+    return () => window.removeEventListener("resize", updateScreenSize);
+  }, []);
 
   const adjustIslandForScreenSize = () => {
-    let screenScale = null;
+    let screenScale = [1, 1, 1];
     let screenPosition = [0, 0.65, -43];
     let rotation = [0.1, 4.7, 0];
 
     if (window.innerWidth <= 768) {
       screenScale = [0.9, 0.9, 0.9];
-    } else {
-      screenScale = [1, 1, 1];
     }
     return [screenScale, screenPosition, rotation];
   };
 
   const adjustPlaneForScreenSize = () => {
-    let screenScale, screenPosition;
+    let screenScale = [3, 3, 3];
+    let screenPosition = [0, -4, -4];
 
     if (window.innerWidth <= 768) {
       screenScale = [1.5, 1.5, 1.5];
       screenPosition = [0, -1.5, 0];
-    } else {
-      screenScale = [3, 3, 3];
-      screenPosition = [0, -4, -4];
     }
     return [screenScale, screenPosition];
   };
-
-  const [
-    islandScale,
-    islandPosition,
-    islandRotation,
-  ] = adjustIslandForScreenSize();
-
-  const [planeScale, planePosition] = adjustPlaneForScreenSize();
 
   return (
     <section className="w-full h-screen relative">
@@ -62,22 +73,22 @@ const Home = () => {
           <ambientLight intensity={0.5} />
           <hemisphereLight
             skyColor="#b1e1ff"
-            groundColor="000000"
+            groundColor="#000000"
             intensity={1}
           />
           <Bird />
           <Sky isRotating={isRotating} />
           <Island
-            position={islandPosition}
-            scale={islandScale}
-            rotation={islandRotation}
+            position={islandProps.position}
+            scale={islandProps.scale}
+            rotation={islandProps.rotation}
             isRotating={isRotating}
             setIsRotating={setIsRotating}
             setCurrentStage={setCurrentStage}
           />
           <Plane
-            planeScale={planeScale}
-            planePosition={planePosition}
+            scale={planeProps.scale}
+            position={planeProps.position}
             isRotating={isRotating}
             rotation={[0, 20, 0]}
           />

@@ -9,24 +9,28 @@ const Bird = () => {
   const { actions } = useAnimations(animations, birdRef);
 
   useEffect(() => {
-    actions["Take 001"].play();
-  }, []);
+    if (actions["Take 001"]) {
+      actions["Take 001"].play();
+    }
+  }, [actions]);
 
   useFrame(({ clock, camera }) => {
-    birdRef.current.position.y = Math.sin(clock.elapsedTime) * 0.2 + 2;
+    if (birdRef.current) {
+      birdRef.current.position.y = Math.sin(clock.elapsedTime) * 0.2 + 2;
 
-    if (birdRef.current.position.x > camera.position.x + 10) {
-      birdRef.current.rotation.y = Math.PI;
-    } else if (birdRef.current.position.x < camera.position.x - 10) {
-      birdRef.current.rotation.y = 0;
-    }
+      if (birdRef.current.position.x > camera.position.x + 10) {
+        birdRef.current.rotation.y = Math.PI;
+      } else if (birdRef.current.position.x < camera.position.x - 10) {
+        birdRef.current.rotation.y = 0;
+      }
 
-    if (birdRef.current.rotation.y === 0) {
-      birdRef.current.position.x += 0.01;
-      birdRef.current.position.z -= 0.01;
-    } else {
-      birdRef.current.position.x -= 0.01;
-      birdRef.current.position.z += 0.01;
+      if (birdRef.current.rotation.y === 0) {
+        birdRef.current.position.x += 0.01;
+        birdRef.current.position.z -= 0.01;
+      } else {
+        birdRef.current.position.x -= 0.01;
+        birdRef.current.position.z += 0.01;
+      }
     }
   });
 
