@@ -35,6 +35,9 @@ const About = () => {
           ))}
         </div>
       </div>
+      <div className="py-16">
+        <h3 className="subhead-text">Work Experience</h3>
+      </div>
     </section>
   );
 };
