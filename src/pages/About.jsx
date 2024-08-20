@@ -1,4 +1,9 @@
-import React from "react";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+
 import { skills } from "../constants";
 
 const About = () => {
@@ -37,6 +42,23 @@ const About = () => {
       </div>
       <div className="py-16">
         <h3 className="subhead-text">Work Experience</h3>
+        <div className="mt-5 flex flex-col gap-3 text-slate-500">
+          <p>
+            During my time at KodeGo BootCamp from July to November 2023, I
+            focused on mastering Jquery, JavaScript, React.js, and Laravel
+            through real-world projects that enhanced my coding skills.
+            Collaborating with a diverse group of developers, I built several
+            full-stack applications, solidifying my technical foundation. After
+            the BootCamp, I delved into developing with Next.js and am now
+            exploring Three.js, continuously expanding my expertise in
+            cutting-edge technologies.
+          </p>
+        </div>
+        <div className="mt-12 flex">
+          <VerticalTimeline>
+            
+          </VerticalTimeline>
+        </div>
       </div>
     </section>
   );
