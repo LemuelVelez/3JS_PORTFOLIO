@@ -49,7 +49,7 @@ const About = () => {
             focused on mastering Jquery, JavaScript, React.js, and Laravel
             through real-world projects that enhanced my coding skills.
             Collaborating with a diverse group of developers, I built several
-            full-stack applications, solidifying my technical foundation. After
+            front-end applications, solidifying my technical foundation. After
             the BootCamp, I delved into developing with Next.js and am now
             exploring Three.js, continuously expanding my expertise in
             cutting-edge technologies.

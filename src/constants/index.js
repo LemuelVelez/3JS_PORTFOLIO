@@ -1,7 +1,6 @@
 import { meta, shopify, starbucks, tesla } from "../assets/images";
 import {
     car,
-    contact,
     css,
     estate,
     express,
@@ -23,7 +22,10 @@ import {
     summiz,
     tailwindcss,
     threads,
-    typescript
+    typescript,
+    kodego,
+    freecodecamp,
+    youtube
 } from "../assets/icons";
 
 export const skills = [
@@ -32,11 +34,11 @@ export const skills = [
         name: "CSS",
         type: "Frontend",
     },
-    {
-        imageUrl: express,
-        name: "Express",
-        type: "Backend",
-    },
+    // {
+    //     imageUrl: express,
+    //     name: "Express",
+    //     type: "Backend",
+    // },
     {
         imageUrl: git,
         name: "Git",
@@ -57,11 +59,11 @@ export const skills = [
         name: "JavaScript",
         type: "Frontend",
     },
-    {
-        imageUrl: mongodb,
-        name: "MongoDB",
-        type: "Database",
-    },
+    // {
+    //     imageUrl: mongodb,
+    //     name: "MongoDB",
+    //     type: "Database",
+    // },
     {
         imageUrl: motion,
         name: "Motion",
@@ -77,26 +79,26 @@ export const skills = [
         name: "Next.js",
         type: "Frontend",
     },
-    {
-        imageUrl: nodejs,
-        name: "Node.js",
-        type: "Backend",
-    },
+    // {
+    //     imageUrl: nodejs,
+    //     name: "Node.js",
+    //     type: "Backend",
+    // },
     {
         imageUrl: react,
         name: "React",
         type: "Frontend",
     },
-    {
-        imageUrl: redux,
-        name: "Redux",
-        type: "State Management",
-    },
-    {
-        imageUrl: sass,
-        name: "Sass",
-        type: "Frontend",
-    },
+    // {
+    //     imageUrl: redux,
+    //     name: "Redux",
+    //     type: "State Management",
+    // },
+    // {
+    //     imageUrl: sass,
+    //     name: "Sass",
+    //     type: "Frontend",
+    // },
     {
         imageUrl: tailwindcss,
         name: "Tailwind CSS",
@@ -111,11 +113,11 @@ export const skills = [
 
 export const experiences = [
     {
-        title: "React.js Developer",
-        company_name: "Starbucks",
-        icon: starbucks,
+        title: "Front-End Developer",
+        company_name: "KodeGo",
+        icon: kodego,
         iconBg: "#accbe1",
-        date: "March 2020 - April 2021",
+        date: "July 2023 - September 2023",
         points: [
             "Developing and maintaining web applications using React.js and other related technologies.",
             "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
@@ -124,43 +126,44 @@ export const experiences = [
         ],
     },
     {
-        title: "React Native Developer",
-        company_name: "Tesla",
-        icon: tesla,
+        title: "Back-End Developer",
+        company_name: "KodeGo",
+        icon: kodego,
         iconBg: "#fbc3bc",
-        date: "Jan 2021 - Feb 2022",
+        date: "October 2023 - November 2023",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "Developed and maintained server-side logic and databases using Laravel, ensuring robust and scalable web applications.",
+            "Collaborated with front-end developers, designers, and product managers to integrate user-facing elements with server-side logic.",
+            "Optimized application performance by managing data storage solutions and enhancing query efficiency.",
+            "Conducted code reviews and provided valuable feedback to improve the back-end architecture and overall system performance.",
         ],
     },
     {
-        title: "Web Developer",
-        company_name: "Shopify",
-        icon: shopify,
+        title: "Responsive Web Design",
+        company_name: "freeCodeCamp",
+        icon: freecodecamp,
         iconBg: "#b7e4c7",
-        date: "Jan 2022 - Jan 2023",
+        date: "June 2024 - July 2024",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "Completed hands-on projects to master responsive web design principles, ensuring websites are visually appealing and functional across various devices.",
+            "Gained expertise in HTML, CSS, and Flexbox, utilizing these technologies to create fluid layouts and adaptive interfaces.",
+            "Focused on mobile-first design approaches, optimizing user experiences for smaller screens and progressively enhancing for larger devices.",
+            "Validated and refined web designs through rigorous testing for cross-browser compatibility and adherence to web accessibility standards.",
         ],
     },
     {
         title: "Full stack Developer",
-        company_name: "Meta",
-        icon: meta,
+        company_name: "YouTube",
+        icon: youtube,
         iconBg: "#a2d2ff",
-        date: "Jan 2023 - Present",
+        date: "Aug 2024 - Present",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "Developing and maintaining full-stack web applications using a variety of technologies, including Django , Next.js, and React.js, .",
+            "Actively engaging in self-directed learning through YouTube, constantly expanding knowledge in emerging technologies such as Three.js,Laravel and the MERN stack.",
+            "Implementing responsive design and optimizing application performance to create seamless user experiences across multiple devices.",
+            "Striving to master new tech stacks and frameworks, continuously refining skills to stay updated with the latest industry trends and best practices.",
         ],
+
     },
 ];
 
