@@ -1,23 +1,19 @@
-import { Suspense, useState, useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
-import Loader from "../components/Loader";
-import Island from "../models/Island";
-import Sky from "../models/Sky";
-import Bird from "../models/Bird";
-import Plane from "../models/Plane";
-import HomeInfo from "../components/HomeInfo";
+import { Suspense, useEffect, useRef, useState } from "react";
 
 import sakura from "../assets/sakura.mp3";
+import { HomeInfo, Loader } from "../components/index";
 import { soundoff, soundon } from "../assets/icons";
+import { Bird, Island, Plane, Sky } from "../models/index";
+
 const Home = () => {
   const audioRef = useRef(new Audio(sakura));
   audioRef.current.volume = 0.4;
   audioRef.current.loop = true;
-  const [isRotating, setIsRotating] = useState(false);
+
   const [currentStage, setCurrentStage] = useState(1);
+  const [isRotating, setIsRotating] = useState(false);
   const [isPlayingMusic, setIsPlayingMusic] = useState(false);
-  const [islandProps, setIslandProps] = useState({});
-  const [planeProps, setPlaneProps] = useState({});
 
   useEffect(() => {
     if (isPlayingMusic) {
@@ -29,48 +25,37 @@ const Home = () => {
     };
   }, [isPlayingMusic]);
 
-  const updateScreenSize = () => {
-    const [
-      islandScale,
-      islandPosition,
-      islandRotation,
-    ] = adjustIslandForScreenSize();
-    const [planeScale, planePosition] = adjustPlaneForScreenSize();
-    setIslandProps({
-      scale: islandScale,
-      position: islandPosition,
-      rotation: islandRotation,
-    });
-    setPlaneProps({ scale: planeScale, position: planePosition });
-  };
+  const adjustBiplaneForScreenSize = () => {
+    let screenScale, screenPosition;
 
-  useEffect(() => {
-    updateScreenSize();
-    window.addEventListener("resize", updateScreenSize);
-    return () => window.removeEventListener("resize", updateScreenSize);
-  }, []);
-
-  const adjustIslandForScreenSize = () => {
-    let screenScale = [1, 1, 1];
-    let screenPosition = [0, 0.65, -43];
-    let rotation = [0.1, 4.7, 0];
-
-    if (window.innerWidth <= 768) {
-      screenScale = [0.9, 0.9, 0.9];
-    }
-    return [screenScale, screenPosition, rotation];
-  };
-
-  const adjustPlaneForScreenSize = () => {
-    let screenScale = [3, 3, 3];
-    let screenPosition = [0, -4, -4];
-
-    if (window.innerWidth <= 768) {
+    // If screen width is less than 768px, adjust the scale and position
+    if (window.innerWidth < 768) {
       screenScale = [1.5, 1.5, 1.5];
       screenPosition = [0, -1.5, 0];
+    } else {
+      screenScale = [3, 3, 3];
+      screenPosition = [0, -4, -4];
     }
+
     return [screenScale, screenPosition];
   };
+
+  const adjustIslandForScreenSize = () => {
+    let screenScale, screenPosition;
+
+    if (window.innerWidth < 768) {
+      screenScale = [0.9, 0.9, 0.9];
+      screenPosition = [0, -6.5, -43.4];
+    } else {
+      screenScale = [1, 1, 1];
+      screenPosition = [0, -6.5, -43.4];
+    }
+
+    return [screenScale, screenPosition];
+  };
+
+  const [biplaneScale, biplanePosition] = adjustBiplaneForScreenSize();
+  const [islandScale, islandPosition] = adjustIslandForScreenSize();
 
   return (
     <section className="w-full h-screen relative">
@@ -87,36 +72,45 @@ const Home = () => {
         <Suspense fallback={<Loader />}>
           <directionalLight position={[1, 1, 1]} intensity={2} />
           <ambientLight intensity={0.5} />
+          <pointLight position={[10, 5, 10]} intensity={2} />
+          <spotLight
+            position={[0, 50, 10]}
+            angle={0.15}
+            penumbra={1}
+            intensity={2}
+          />
           <hemisphereLight
             skyColor="#b1e1ff"
             groundColor="#000000"
             intensity={1}
           />
+
           <Bird />
           <Sky isRotating={isRotating} />
           <Island
-            position={islandProps.position}
-            scale={islandProps.scale}
-            rotation={islandProps.rotation}
             isRotating={isRotating}
             setIsRotating={setIsRotating}
             setCurrentStage={setCurrentStage}
+            position={islandPosition}
+            rotation={[0.1, 4.7077, 0]}
+            scale={islandScale}
           />
           <Plane
-            scale={planeProps.scale}
-            position={planeProps.position}
             isRotating={isRotating}
-            rotation={[0, 20, 0]}
+            position={biplanePosition}
+            rotation={[0, 20.1, 0]}
+            scale={biplaneScale}
           />
         </Suspense>
       </Canvas>
 
       <div className="absolute bottom-2 left-2">
-        <img src={!isPlayingMusic ? soundoff : soundon}
-        alt="sound"
-        className="w-10 h-10 cursor-pointer object-contain"
-        onClick={() => setIsPlayingMusic(!isPlayingMusic)}
-         />
+        <img
+          src={!isPlayingMusic ? soundoff : soundon}
+          alt="jukebox"
+          onClick={() => setIsPlayingMusic(!isPlayingMusic)}
+          className="w-10 h-10 cursor-pointer object-contain"
+        />
       </div>
     </section>
   );
