@@ -188,7 +188,7 @@ export const projects = [
         iconUrl: cinemasync,
         theme: 'btn-back-red',
         name: 'CinemaSync',
-        description: 'Developed a web application that synchronizes movie watching experiences, allowing users to watch films together in real-time, no matter where they are located.',
+        description: 'Developed a web application that synchronizes movie trailer watching experiences, allowing users to watch trailers together in real-time, no matter where they are located.',
         link: 'https://cinema-sync.vercel.app/',
     },
     {
