@@ -1,4 +1,5 @@
 import React from "react";
+import { projects } from "../constants";
 
 const Projects = () => {
   return (
@@ -18,6 +19,17 @@ const Projects = () => {
           hear your thoughts or see your contributions. Let's collaborate and
           make these projects even better together!
         </p>
+      </div>
+
+      <div className="flex flex-wrap my-20 gap-16">
+        {projects.map((project) => (
+          <div>
+            <div className={`btn-black rounded-xl ${project.theme}`} />
+            <div>
+              <img />
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
