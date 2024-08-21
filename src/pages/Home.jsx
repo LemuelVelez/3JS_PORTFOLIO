@@ -1,13 +1,12 @@
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useEffect, useRef, useState } from "react";
-
-import sakura from "../assets/sakura.mp3";
+import Psalm91Harp from "../assets/Psalm91Harp.mp3";
 import { HomeInfo, Loader } from "../components/index";
 import { soundoff, soundon } from "../assets/icons";
 import { Bird, Island, Plane, Sky } from "../models/index";
 
 const Home = () => {
-  const audioRef = useRef(new Audio(sakura));
+  const audioRef = useRef(new Audio(Psalm91Harp));
   audioRef.current.volume = 0.4;
   audioRef.current.loop = true;
 
@@ -104,13 +103,19 @@ const Home = () => {
         </Suspense>
       </Canvas>
 
-      <div className="absolute bottom-2 left-2">
+      <div className="absolute bottom-2 left-2 flex items-center space-x-2">
         <img
           src={!isPlayingMusic ? soundoff : soundon}
           alt="jukebox"
           onClick={() => setIsPlayingMusic(!isPlayingMusic)}
           className="w-10 h-10 cursor-pointer object-contain"
         />
+        <span
+          className="text-blue-600 cursor-pointer"
+          onClick={() => setIsPlayingMusic(!isPlayingMusic)}
+        >
+          Click me!
+        </span>
       </div>
     </section>
   );

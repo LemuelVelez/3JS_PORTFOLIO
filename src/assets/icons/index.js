@@ -29,6 +29,9 @@ import soundoff from './soundoff.png'
 import kodego from './kodego.svg'
 import freecodecamp from './freecodecamp.svg'
 import youtube from './youtube.svg'
+import cinemasync from './cinemasync.svg'
+import responsiveportfolio from './responsiveportfolio.svg'
+import nextjsportfolio from './nextjsportfolio.svg'
 
 export {
     css,
@@ -61,5 +64,8 @@ export {
     soundoff,
     kodego,
     freecodecamp,
-    youtube
+    youtube,
+    cinemasync,
+    responsiveportfolio,
+    nextjsportfolio
 }
