@@ -23,10 +23,14 @@ const Projects = () => {
 
       <div className="flex flex-wrap my-20 gap-16">
         {projects.map((project) => (
-          <div>
-            <div className={`btn-black rounded-xl ${project.theme}`} />
+          <div className="lg-w-[400px] w-full" key={project.name}>
+            <div className={`btn-back rounded-xl ${project.theme}`} />
             <div>
-              <img />
+              <img
+                src={project.iconUrl}
+                alt="Project Icon"
+                className="w-1/2 h-1/2 object-contain"
+              />
             </div>
           </div>
         ))}
