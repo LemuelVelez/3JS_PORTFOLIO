@@ -116,8 +116,8 @@ export const skills = [
 
 export const experiences = [
     {
-        title: "Front-End Developer",
-        company_name: "KodeGo",
+        title: "Front-End Developer (Bootcamp Project)",
+        company_name: "KodeGo BootCamp, Philippines",
         icon: kodego,
         iconBg: "#accbe1",
         date: "July 2023 - September 2023",
@@ -129,8 +129,8 @@ export const experiences = [
         ],
     },
     {
-        title: "Back-End Developer",
-        company_name: "KodeGo",
+        title: "Back-End Developer (Bootcamp Project)",
+        company_name: "KodeGo BootCamp, Philippines",
         icon: kodego,
         iconBg: "#fbc3bc",
         date: "October 2023 - November 2023",
