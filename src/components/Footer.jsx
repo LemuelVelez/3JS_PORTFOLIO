@@ -9,7 +9,7 @@ const Footer = () => {
 
       <div className="footer-container">
         <p>
-          © 2024 <strong>Lemuel Velez</strong>. All rights reserved. Jesus be
+          © 2024 <strong>Lemuel Velez</strong>. All rights reserved. <strong> Jesus </strong>be
           the Glory!
         </p>
 
